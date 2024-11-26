@@ -10,7 +10,7 @@ steps:
     inputs:
       deploymentScope: 'Resource Group'
       azureResourceManagerConnection: 'newPrueba'
-      subscriptionId: 'bc4098f1-2643-4bf2-b54c-bc247c4bac8d'
+      subscriptionId: 'cc376f3b-7525-4659-afd2-18f7b850cef7'
       action: 'Create Or Update Resource Group'
       resourceGroupName: 'NetworkWatcherRG'
       location: 'East US'
