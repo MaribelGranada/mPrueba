@@ -9,10 +9,10 @@ steps:
     displayName: 'Deploy ARM Template'
     inputs:
       deploymentScope: 'Resource Group'
-      azureResourceManagerConnection: '<nombre-de-conexion-de-servicio>'
-      subscriptionId: '<id-de-tu-suscripcion>'
+      azureResourceManagerConnection: 'newPrueba'
+      subscriptionId: 'bc4098f1-2643-4bf2-b54c-bc247c4bac8d'
       action: 'Create Or Update Resource Group'
-      resourceGroupName: 'myResourceGroup'
+      resourceGroupName: 'NetworkWatcherRG'
       location: 'East US'
       templateLocation: 'Linked artifact'
       csmFile: 'azuredeploy.json'
