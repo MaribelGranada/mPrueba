@@ -19,23 +19,11 @@
   },
   "resources": [
     {
-      "type": "Microsoft.Network/networkInterfaces",
+      "type": "Microsoft.Network/networkWatchers",
       "apiVersion": "2021-02-01",
-      "name": "myVMNic",
+      "name": "NetworkWatcher_eastus2",
       "location": "[resourceGroup().location]",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVNet', 'default')]"
-              },
-              "privateIPAddressAllocation": "Dynamic"
-            }
-          }
-        ]
-      }
+      "properties": {}
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -65,7 +53,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', 'myVMNic')]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', 'NetworkWatcher_eastus2')]"
             }
           ]
         }
@@ -73,4 +61,3 @@
     }
   ]
 }
-
