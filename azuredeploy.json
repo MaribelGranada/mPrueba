@@ -1,6 +1,20 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Admin username for the virtual machine"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Admin password for the virtual machine"
+      }
+    }
+  },
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -24,8 +38,8 @@
         },
         "osProfile": {
           "computerName": "myVM",
-          "adminUsername": "azureuser",
-          "adminPassword": "P@ssw0rd123"
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
         },
         "networkProfile": {
           "networkInterfaces": [
