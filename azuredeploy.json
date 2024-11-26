@@ -1,6 +1,22 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "azureuser",
+      "metadata": {
+        "description": "Nombre de usuario administrador de la máquina virtual"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "defaultValue": "P@ssw0rd123",
+      "metadata": {
+        "description": "Contraseña del administrador de la máquina virtual"
+      }
+    }
+  },
   "resources": [
     {
       "type": "Microsoft.Network/networkInterfaces",
