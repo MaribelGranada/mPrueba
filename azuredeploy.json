@@ -1,21 +1,26 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "adminUsername": {
-      "type": "string",
-      "metadata": {
-        "description": "Admin username for the virtual machine"
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-02-01",
+      "name": "myVMNic",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVNet', 'default')]"
+              },
+              "privateIPAddressAllocation": "Dynamic"
+            }
+          }
+        ]
       }
     },
-    "adminPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Admin password for the virtual machine"
-      }
-    }
-  },
-  "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2021-03-01",
@@ -52,3 +57,4 @@
     }
   ]
 }
+
